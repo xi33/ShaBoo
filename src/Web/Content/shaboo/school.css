@@ -1,0 +1,169 @@
+
+body{
+	font-size:12px;
+}
+div.clear{clear:both;}
+
+div.left{
+	width:700px;
+	float:left;
+}
+h4{
+	font-size:12px;
+	font-weight:bold;
+}
+div.schoolproperties{
+	
+	width:630px;
+	height:auto;
+	min-height:80px;
+	background-color:#F4F2F3;
+	padding-bottom:30px;
+}
+h4.schoolname{
+	position:relative;
+	top:14px;
+	left:15px;
+	display:block;
+}
+
+div.schoolproperties ul{
+	margin-top:32px;
+	margin-left:36px;
+}
+
+div.schoolproperties ul li{
+	float:left;
+	width:120px;
+	margin-right:65px;
+	margin-bottom:14px;
+}
+
+div.schoolproperties ul li a { 
+	padding-left:3px; 
+	} 
+	
+div.schoolproperties a{
+	color:#624154;
+}
+div.schoolproperties ul li span{
+	color:#b6b4b5;
+}
+
+
+
+
+
+div#schooldocstable{
+	width:630px;
+	height:auto;
+	position:relative;
+	top:36px;
+}
+div.schooldocstabletitle,li.colored{
+	background-color:#f6f6f6;
+}
+div.schooldocstableinner li{
+	padding:8px 0 6px 0;
+	height:16px;
+}
+div.schooldocstableinner li a{
+	font-size:12px;
+}
+div.schooldocstabletitle{
+	color:#343434;
+	height:12px;
+	width:630px;
+	padding:9px 0 9px 0;
+}
+
+span.school-docname{
+	float:left;
+	position:absolute;
+	width:300px;
+	left:16px;
+	height:16px;
+}
+span.school-docname a img{
+	padding-right: 4px;
+    position: relative;
+    top: 3px;
+}
+span.school-docname a{
+    position: relative;
+    top: -5px;
+	color:#343434;
+}
+
+
+
+span.school-uploader{
+	text-align:center;
+	display:block;
+	float:left;
+	position:absolute;
+	width:70px;
+	left:395px;
+	color:#343434;
+}
+span.school-docdownload{
+	text-align:center;
+	display:block;
+	float:left;
+	position:absolute;
+	width:36px;
+	left:485px;
+	color:#BCBCBC;
+}
+span.school-docuploadtime{
+	display:block;
+	float:left;
+	position:absolute;
+	width:65px;
+	left:559px;
+	color:#BCBCBC;
+}
+span.school-docdownloadtitle{
+	display:block;
+	float:left;
+	position:absolute;
+	width:36px;
+	left:485px;
+	color:#343434;
+}
+span.school-docuploadtimetitle{
+	text-align:center;
+	display:block;
+	float:left;
+	position:absolute;
+	width:65px;
+	left:559px;
+	color:#343434;
+}
+
+
+div#page{
+position:relative;
+width:630px;
+height:30px;
+left:200px;
+top:60px;
+
+}
+
+
+ol.pagination li{
+	float:left;
+	margin-right:4px;
+	list-style-type:none;
+}
+ol.pagination a, ol.pagination li.seleted{
+	display:block;
+	padding:0 3px;
+	text-decoration:none;
+}
+li.selected{
+	color:#4B9445;
+	padding:0 3px;
+	border-bottom:3px #92C775 solid;
+}

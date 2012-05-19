@@ -1,0 +1,100 @@
+
+body{
+	font-size:12px;
+}
+div.left{
+	width:700px;
+	float:left;
+}
+h4{
+	font-size:12px;
+	font-weight:bold;
+}
+
+h4#doctitle{
+	position:relative;
+	top:14px;
+	left:15px;
+	display:block;
+}
+
+div.singledocproperties ul{
+	color:#624152;
+	margin-left:29px;
+	margin-top:32px;
+}
+div.singledocproperties ul li{
+	float:left;
+	width:160px;
+	margin-right:40px;
+	margin-bottom:7px;
+}
+h4#docint{
+	top:30px;
+	position:relative;
+	left:15px;
+	display:block;
+}
+div.singledocproperties p{
+	position:relative;
+	margin-left:29px;
+	margin-top:33px;
+}
+
+div#single-shareto{
+	color:#4E9343;
+	position:relative;
+	top:14px;
+}
+
+a#downloadbotton{
+	float:right;
+	position:relative;
+	right:70px;
+	top:10px;
+}
+
+div#relativedocs{
+	position:relative;
+	top:60px;
+}
+div.singledocproperties{
+	width:630px;
+	background-color:#f4f2f3;
+	height:auto;
+	padding-bottom:20px;
+}
+div#singlerelativedocs{
+	margin-top:40px;
+}
+ul.singlerelativedocsul{
+	margin-top:12px;
+}
+ul.singlerelativedocsul li{
+	float:left;
+	display:inline;
+	width:111px;
+	margin-right:61px;
+}
+a.relativetitle{
+	position:relative;
+	top:4px;
+}
+ul.singlerelativedocsul li img{
+	border: 1px solid #DDDDDD;
+}
+
+
+/*popup */
+.bubbleInfo {
+    position: relative;
+}
+
+.popup {
+    position: absolute;
+    display: none; /* keeps the popup hidden if no JS available */
+	width:200px;
+	height:100px;
+	background-color:#000;
+	color:#FFF;
+}

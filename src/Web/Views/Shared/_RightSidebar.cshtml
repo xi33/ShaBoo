@@ -1,0 +1,157 @@
+﻿<div id="rightsidebar">
+    <div class="uploadlink">
+        <p class="docnum">
+            当前已有<span>12345</span>份文档</p>
+        <a href="@Url.Action("Upload", "Document")">
+            <img src="@Url.Content("~/Content/images//uploaddocs.jpg")" alt="分享我的文档" /></a>
+    </div>
+    <div class="latest">
+        <h3>
+            最新上传</h3>
+        <hr />
+        <ul>
+            <li><a href="">
+                <img src="@Url.Content("~/Content/images//doctypeicon/ppt.jpg")" alt="PPT" class="doctypeicon" />马克思主义基本原理</a></li>
+            <li><a href="">
+                <img src="@Url.Content("~/Content/images//doctypeicon/pdf.jpg")" alt="PDF" class="doctypeicon" />2011大学毕业生自我鉴定</a></li>
+            <li><a href="">
+                <img src="@Url.Content("~/Content/images//doctypeicon/doc.jpg")" alt="WORD" class="doctypeicon" />绿色环保宣传标语</a></li>
+            <li><a href="">
+                <img src="@Url.Content("~/Content/images//doctypeicon/ppt.jpg")" alt="PPT" class="doctypeicon" />绿色环保宣传标语</a></li>
+            <li><a href="">
+                <img src="@Url.Content("~/Content/images//doctypeicon/ppt.jpg")" alt="PPT" class="doctypeicon" />信号与线性系统</a></li>
+        </ul>
+    </div>
+    <div class="recommend">
+        <a href="">
+            <h3>
+                每周推荐</h3>
+        </a>
+        <hr />
+        <!-- "rb"=recommend book -->
+        <div id="rbglider">
+            <div id="rslider">
+                <ul>
+                    <li>
+                        <div class="section">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="@Url.Content("~/Content/images//bookcover.jpg")" alt="例外的挑战" /></a>
+                            </div>
+                            <p class="rbtitle">
+                                <a href="#">《例外的挑战》0</a></p>
+                            <p class="rbauthor">
+                                作者：乔治·施瓦布</p>
+                            <p class="rbindroduction">
+                                简介：德国法学家卡尔·施米特深刻地影响力上个世纪的西方政治和法学思想，然而他的生平和著作也激起了相当大的争议。本书是揭示</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="section">
+                            <div class="cover">
+                                <a href="">
+                                    <img src="@Url.Content("~/Content/images//bookcover.jpg")" alt="例外的挑战" /></a>
+                            </div>
+                            <p class="rbtitle">
+                                <a href="#">《例外的挑战》1</a></p>
+                            <p class="rbauthor">
+                                作者：乔治·施瓦布</p>
+                            <p class="rbindroduction">
+                                简介：德国法学家卡尔·施米特深刻地影响力上个世纪的西方政治和法学思想，然而他的生平和著作也激起了相当大的争议。本书是揭示</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="section">
+                            <div class="cover">
+                                <a href="">
+                                    <img src="@Url.Content("~/Content/images//bookcover.jpg")" alt="例外的挑战" /></a>
+                            </div>
+                            <p class="rbtitle">
+                                <a href="#">《例外的挑战》2</a></p>
+                            <p class="rbauthor">
+                                作者：乔治·施瓦布</p>
+                            <p class="rbindroduction">
+                                简介：德国法学家卡尔·施米特深刻地影响力上个世纪的西方政治和法学思想，然而他的生平和著作也激起了相当大的争议。本书是揭示</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="section">
+                            <div class="cover">
+                                <a href="">
+                                    <img src="@Url.Content("~/Content/images//bookcover.jpg")" alt="例外的挑战" /></a>
+                            </div>
+                            <p class="rbtitle">
+                                <a href="#">《例外的挑战》3</a></p>
+                            <p class="rbauthor">
+                                作者：乔治·施瓦布</p>
+                            <p class="rbindroduction">
+                                简介：德国法学家卡尔·施米特深刻地影响力上个世纪的西方政治和法学思想，然而他的生平和著作也激起了相当大的争议。本书是揭示</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--<p id="rcontrols">
+						<a href="javascript:void(0);" id="prevBtn" ></a>
+						<a href="javascript:void(0);" id="nextBtn" ></a>
+						<script type="text/javascript" charset="utf-8">
+							
+	  					</script>
+					</p>-->
+    </div>
+    <div class="rank">
+        <h3>
+            积分排行</h3>
+        <hr />
+        <ul class="inline">
+            <li><a href="" id="weeklink" class="active">本周</a></li>
+            <li>|</li>
+            <li><a href="" id="monthlink" class="">本月</a></li>
+            <li>|</li>
+            <li><a href="" id="totallink" class="">总计</a></li>
+        </ul>
+        <!-- "rweek"=rank week" -->
+        <div id="rweek" class="">
+            <ol>
+                <li><a href="">wusername123</a></li>
+                <li><a href="">wusername123</a></li>
+                <li><a href="">wusername123</a></li>
+                <li><a href="">wusername123</a></li>
+                <li><a href="">wusername123</a></li>
+                <li><a href="">wusername123</a></li>
+                <li><a href="">wusername123</a></li>
+                <li><a href="">wusername123</a></li>
+                <li><a href="">wusername123</a></li>
+                <li><a href="">wusername123</a></li>
+            </ol>
+        </div>
+        <div id="rmonth" class="no-display">
+            <ol>
+                <li><a href="">musername123</a></li>
+                <li><a href="">musername123</a></li>
+                <li><a href="">musername123</a></li>
+                <li><a href="">musername123</a></li>
+                <li><a href="">musername123</a></li>
+                <li><a href="">musername123</a></li>
+                <li><a href="">musername123</a></li>
+                <li><a href="">musername123</a></li>
+                <li><a href="">musername123</a></li>
+                <li><a href="">musername123</a></li>
+            </ol>
+        </div>
+        <div id="rtotal" class="no-display">
+            <ol>
+                <li><a href="">tusername123</a></li>
+                <li><a href="">tusername123</a></li>
+                <li><a href="">tusername123</a></li>
+                <li><a href="">tusername123</a></li>
+                <li><a href="">tusername123</a></li>
+                <li><a href="">tusername123</a></li>
+                <li><a href="">tusername123</a></li>
+                <li><a href="">tusername123</a></li>
+                <li><a href="">tusername123</a></li>
+                <li><a href="">tusername123</a></li>
+            </ol>
+        </div>
+    </div>
+</div>

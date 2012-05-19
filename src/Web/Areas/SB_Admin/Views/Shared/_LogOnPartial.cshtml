@@ -1,0 +1,11 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <p>
+        John Doe (<a href="#">3 Messages</a>)</p>
+    <a class="logout_user" href="#" title="Logout">Logout</a>
+}
+else
+{
+    <p>
+        请先登录</p>
+}

@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "后台管理";
+    Layout = "~/Areas/SB_Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section Head{
+    <script>
+        (function () {
+            $(function () {
+
+                function renderDashboard(e, element) {
+
+                    var actionURL = '@Url.Action("Dashboard", "Dashboard")';
+
+                    $("#ajax-progress-dialog").dialog("open");
+
+                    $.ajax({
+                        type: "POST",
+                        url: actionURL,
+                        success: function (r) {
+                            $("#main").html(r.data);
+                        },
+                        complete: function () {
+                            $("#ajax-progress-dialog").dialog("close");
+                            $(".dashboard_link").bind("click", function (event) {
+                                renderDashboard(event, $(this));
+                            });
+                        },
+                        error: function (req, status, error) {
+                            //do what you need to do here if an error occurs
+                            $("#ajax-progress-dialog").dialog("close");
+                        }
+                    });
+
+                    e.preventDefault();
+                }
+
+                function renderCreateBoard(e, element) {
+
+                    var actionURL = '@Url.Action("CreateBoard", "Dashboard")';
+
+                    $("#ajax-progress-dialog").dialog("open");
+
+                    $.ajax({
+                        type: "POST",
+                        url: actionURL,
+                        success: function (r) {
+                            $("#main").html(r.data);
+                        },
+                        complete: function () {
+                            $("#ajax-progress-dialog").dialog("close");
+                            $(".icn_new_board").bind("click", function (event) {
+                                renderCreateBoard(event, $(this));
+                            });
+                        },
+                        error: function (req, status, error) {
+                            //do what you need to do here if an error occurs
+                            $("#ajax-progress-dialog").dialog("close");
+                        }
+                    });
+
+                    e.preventDefault();
+                }
+
+
+                $(".icn_new_board").bind("click", function (e) {
+                    renderCreateBoard(e, $(this));
+                });
+
+                $(".dashboard_link").bind("click", function (e) {
+                    renderDashboard(e, $(this));
+                });
+
+            });
+        })();
+    </script>
+    <script type="text/javascript" src="@Url.Content("~/UEditor/editor_config.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/UEditor/editor_all_min.js")"></script>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/UEditor/themes/default/ueditor.css")" />
+    <script language="javascript" type="text/javascript">
+        var editor = new baidu.editor.ui.Editor();
+        editor.render("Content");
+    </script>
+}
+<section id="main" class="column">
+    <h4>你好，欢迎您</h4>
+</section>

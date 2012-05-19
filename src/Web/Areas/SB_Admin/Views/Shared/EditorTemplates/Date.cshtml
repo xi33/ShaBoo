@@ -1,0 +1,4 @@
+﻿@model DateTime
+<script type="text/javascript" src="@Url.Content("~/Areas/SB_Admin/Scripts/EditorHookup.js")"></script>
+@Html.TextBox("", Model.ToString("dd/MM/yyyy"), new { @class = "date", style = "width:92%" })
+** TODO Wire up the date picker! **

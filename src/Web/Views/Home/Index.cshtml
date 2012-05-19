@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div id="content">
+    <div class="left">
+        <h2>
+            测试版说明</h2>
+        <p>@ViewBag.Hello</p>
+        <p>
+            请先<a href="@Url.Action("Register", "Account")"><strong>注册（点击该链接）</strong></a>
+            <p>然后点击<strong>分享我的文档</strong>，上传</p>
+        <p>
+            或者点击下面的<strong>当前注册用户名称</strong></p>
+        <p>
+            由于这是重构后的版本，还有一些功能在原来的代码没有整合</p>
+        <p>
+            我也不想把代码搞的太乱</p>
+        <p>
+            上传插件好像有问题。只能传小于10M的文件s</p>
+        <h2>
+            当前用户角色，新创建用户默认角色为User</h2>
+        <ul>
+            @foreach (var role in ViewBag.Roles)
+            {
+                <li>@role.Name</li>
+            }
+        </ul>
+        <h2>
+            当前注册用户</h2>
+        <ul>
+            @foreach (var user in ViewBag.Users)
+            {
+                <li><a href="@Url.Action("Index", "Profile", new { name = @user.Name })">@user.Name</a>
+                </li>
+            }
+        </ul>
+    </div>
+    @{
+        Html.RenderPartial("~/Views/Shared/_RightSideBar.cshtml");
+    }
+    <div class="blank">
+    </div>
+</div>

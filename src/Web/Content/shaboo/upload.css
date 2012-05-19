@@ -1,0 +1,130 @@
+/*文档站 上传页面 CSS*/
+
+.upform
+{
+    width: 555px;
+    float: left;
+    position: relative;
+    top: 50px;
+    left: -110px;
+}
+
+.selectfile
+{
+    height: 30px;
+}
+
+.pos
+{
+    font-size: 12px;
+    line-height: 24px;
+    width: 309px;
+    height: 24px;
+    border: 1px solid #D9D9D9;
+}
+
+.uploadbutton
+{
+    font-size: 14px;
+    color: #FFF;
+    letter-spacing: 0.4em;
+    text-align: center;
+    width: 58px;
+    height: 24px;
+    padding-left: 7px;
+    _padding-left: 0;
+    padding-bottom: 3px;
+    background-color: #92C976;
+    border: 1px solid #79B05F;
+    cursor: hand;
+}
+
+.selectfile input.uploadbutton
+{
+    margin-left: 20px;
+}
+
+.doctitle
+{
+    height: 30px;
+    padding-top: 8px;
+}
+
+.doctitle input
+{
+    width: 309px;
+    height: 26px;
+    line-height: 24px;
+    border: 1px solid #D9D9D9;
+}
+
+.mustar
+{
+    color: #F00;
+    padding-left: 30px;
+}
+
+.doclass
+{
+    height: 30px;
+    padding-top: 8px;
+}
+
+.doclass select
+{
+    width: 150px;
+    line-height: 30px;
+    border: 1px solid #D9D9D9;
+}
+
+.keyword
+{
+    height: 130px;
+    padding-left: 12px;
+}
+
+/*
+.keyword input
+{
+    width: 309px;
+    height: 100px;
+    line-height: 24px;
+    border: 1px solid #D9D9D9;
+}
+*/
+
+.explain
+{
+    padding-left: 10px;
+}
+
+.docintroduction
+{
+    padding-top: 8px;
+}
+
+.docintroduction span
+{
+    float: left;
+    padding-right: 3px;
+}
+
+#Intro
+{
+    width: 489px;
+    height: 110px;
+    border: 1px solid #D9D9D9;
+    float: right;
+}
+
+.submit
+{
+    width: 555px;
+    padding-top: 120px;
+    _padding-top: 10px;
+}
+
+.submit input
+{
+    float: right;
+}

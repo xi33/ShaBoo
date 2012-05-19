@@ -1,0 +1,95 @@
+
+
+.recommend-list{ 
+	width:630px; 
+	float:left;
+	position:relative; 
+	top:20px; 
+	left:-120px; 
+	} 
+	
+#rightsidebar{ 
+	_margin-top:-910px;
+	} 
+	
+.abook{ 
+	width:630px; 
+	height:191px; 
+	background-color:#F7F7F7; 
+	margin:10px 0 10px 0; 
+	} 
+	
+.bookinfo{ 
+	width:350px; 
+	height:200px; 
+	float:left;
+	position:relative; 
+	top:20px; 
+	left:20px; 
+	} 
+	
+.bookinfo ul{ 
+	width:220px; 
+	height:150px; 
+	overflow:hidden; 
+	color:#634152; 
+	float:left; 
+	padding-left:15px;
+	}	
+	
+.bookinfo ul li{ 
+	width:170px;
+	height:18px; 	
+	overflow:hidden; 
+	} 
+	
+.booktitle{ 
+	color:#000;
+	font-weight:bold;
+	padding-bottom:5px;
+	} 
+	
+.bookcover{ 
+	width:110px; 
+	height:151px;
+	float:left;	
+	} 
+	
+.introduction{ 
+	width:200px; 
+	height:150px; 
+	overflow:hidden; 
+	padding-top:20px; 
+	float:left;
+	} 
+	
+.introtitle{ 
+	font-weight:bold; 
+	padding-bottom:5px; 
+	}
+	
+	
+div.page{
+	width:630px;
+	height:30px;
+	padding-left:200px; 
+	padding-top:20px; 
+	}
+
+ol.pagination li{
+	float:left;
+	margin-right:4px;
+	list-style-type:none;
+	}
+	
+ol.pagination a, ol.pagination li.seleted{
+	display:block;
+	padding:0 3px;
+	text-decoration:none;
+	}
+	
+li.selected{
+	color:#4B9445;
+	padding:0 3px;
+	border-bottom:3px #92C775 solid;
+	}

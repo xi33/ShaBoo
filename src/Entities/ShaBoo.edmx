@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ShaBoo.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ShaBooStoreContainer">
+    <EntitySet Name="RoleSet" EntityType="ShaBoo.Store.RoleSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserSet" EntityType="ShaBoo.Store.UserSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocumentSet" EntityType="ShaBoo.Store.DocumentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProfileSet" EntityType="ShaBoo.Store.ProfileSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FstClassSet" EntityType="ShaBoo.Store.FstClassSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SndClassSet" EntityType="ShaBoo.Store.SndClassSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TrdClassSet" EntityType="ShaBoo.Store.TrdClassSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BoardSet" EntityType="ShaBoo.Store.BoardSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="RoleUser" Association="ShaBoo.Store.RoleUser">
+      <End Role="Role" EntitySet="RoleSet" />
+      <End Role="User" EntitySet="UserSet" />
+    </AssociationSet>
+    <AssociationSet Name="FstClassSndClass" Association="ShaBoo.Store.FstClassSndClass">
+      <End Role="FstClass" EntitySet="FstClassSet" />
+      <End Role="SndClass" EntitySet="SndClassSet" />
+    </AssociationSet>
+    <AssociationSet Name="SndClassTrdClass" Association="ShaBoo.Store.SndClassTrdClass">
+      <End Role="SndClass" EntitySet="SndClassSet" />
+      <End Role="TrdClass" EntitySet="TrdClassSet" />
+    </AssociationSet>
+    <AssociationSet Name="FstClassDocument" Association="ShaBoo.Store.FstClassDocument">
+      <End Role="FstClass" EntitySet="FstClassSet" />
+      <End Role="Document" EntitySet="DocumentSet" />
+    </AssociationSet>
+    <AssociationSet Name="SndClassDocument" Association="ShaBoo.Store.SndClassDocument">
+      <End Role="SndClass" EntitySet="SndClassSet" />
+      <End Role="Document" EntitySet="DocumentSet" />
+    </AssociationSet>
+    <AssociationSet Name="TrdClassDocument" Association="ShaBoo.Store.TrdClassDocument">
+      <End Role="TrdClass" EntitySet="TrdClassSet" />
+      <End Role="Document" EntitySet="DocumentSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProfileDocument" Association="ShaBoo.Store.ProfileDocument">
+      <End Role="Profile" EntitySet="ProfileSet" />
+      <End Role="Document" EntitySet="DocumentSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="RoleSet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserSet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentSet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Path" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tags" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Intro" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Suffix" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Size" Type="int" Nullable="false" />
+    <Property Name="Views" Type="smallint" Nullable="false" />
+    <Property Name="Downloads" Type="smallint" Nullable="false" />
+    <Property Name="UploadedOn" Type="datetime" Nullable="false" />
+    <Property Name="FstClassID" Type="int" Nullable="false" />
+    <Property Name="SndClassID" Type="int" Nullable="false" />
+    <Property Name="TrdClassID" Type="int" Nullable="false" />
+    <Property Name="ProfileID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfileSet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Alias" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Intro" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Point" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FstClassSet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SndClassSet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FstClassID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TrdClassSet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SndClassID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BoardSet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PostedOn" Type="datetime" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="RoleUser">
+    <End Role="Role" Type="ShaBoo.Store.RoleSet" Multiplicity="1" />
+    <End Role="User" Type="ShaBoo.Store.UserSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FstClassSndClass">
+    <End Role="FstClass" Type="ShaBoo.Store.FstClassSet" Multiplicity="1" />
+    <End Role="SndClass" Type="ShaBoo.Store.SndClassSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FstClass">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SndClass">
+        <PropertyRef Name="FstClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SndClassTrdClass">
+    <End Role="SndClass" Type="ShaBoo.Store.SndClassSet" Multiplicity="1" />
+    <End Role="TrdClass" Type="ShaBoo.Store.TrdClassSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SndClass">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TrdClass">
+        <PropertyRef Name="SndClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FstClassDocument">
+    <End Role="FstClass" Type="ShaBoo.Store.FstClassSet" Multiplicity="1" />
+    <End Role="Document" Type="ShaBoo.Store.DocumentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FstClass">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="FstClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SndClassDocument">
+    <End Role="SndClass" Type="ShaBoo.Store.SndClassSet" Multiplicity="1" />
+    <End Role="Document" Type="ShaBoo.Store.DocumentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SndClass">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="SndClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrdClassDocument">
+    <End Role="TrdClass" Type="ShaBoo.Store.TrdClassSet" Multiplicity="1" />
+    <End Role="Document" Type="ShaBoo.Store.DocumentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrdClass">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="TrdClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProfileDocument">
+    <End Role="Profile" Type="ShaBoo.Store.ProfileSet" Multiplicity="1" />
+    <End Role="Document" Type="ShaBoo.Store.DocumentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="ProfileID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ShaBoo" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="ShaBooContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RoleSet" EntityType="ShaBoo.Role" />
+          <EntitySet Name="UserSet" EntityType="ShaBoo.User" />
+          <AssociationSet Name="RoleUser" Association="ShaBoo.RoleUser">
+            <End Role="Role" EntitySet="RoleSet" />
+            <End Role="User" EntitySet="UserSet" />
+          </AssociationSet>
+          <EntitySet Name="DocumentSet" EntityType="ShaBoo.Document" />
+          <EntitySet Name="ProfileSet" EntityType="ShaBoo.Profile" />
+          <EntitySet Name="FstClassSet" EntityType="ShaBoo.FstClass" />
+          <EntitySet Name="SndClassSet" EntityType="ShaBoo.SndClass" />
+          <EntitySet Name="TrdClassSet" EntityType="ShaBoo.TrdClass" />
+          <AssociationSet Name="FstClassSndClass" Association="ShaBoo.FstClassSndClass">
+            <End Role="FstClass" EntitySet="FstClassSet" />
+            <End Role="SndClass" EntitySet="SndClassSet" />
+          </AssociationSet>
+          <AssociationSet Name="SndClassTrdClass" Association="ShaBoo.SndClassTrdClass">
+            <End Role="SndClass" EntitySet="SndClassSet" />
+            <End Role="TrdClass" EntitySet="TrdClassSet" />
+          </AssociationSet>
+          <AssociationSet Name="FstClassDocument" Association="ShaBoo.FstClassDocument">
+            <End Role="FstClass" EntitySet="FstClassSet" />
+            <End Role="Document" EntitySet="DocumentSet" />
+          </AssociationSet>
+          <AssociationSet Name="SndClassDocument" Association="ShaBoo.SndClassDocument">
+            <End Role="SndClass" EntitySet="SndClassSet" />
+            <End Role="Document" EntitySet="DocumentSet" />
+          </AssociationSet>
+          <AssociationSet Name="TrdClassDocument" Association="ShaBoo.TrdClassDocument">
+            <End Role="TrdClass" EntitySet="TrdClassSet" />
+            <End Role="Document" EntitySet="DocumentSet" />
+          </AssociationSet>
+          <EntitySet Name="BoardSet" EntityType="ShaBoo.Board" />
+          <AssociationSet Name="ProfileDocument" Association="ShaBoo.ProfileDocument">
+            <End Role="Profile" EntitySet="ProfileSet" />
+            <End Role="Document" EntitySet="DocumentSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="ShaBoo.RoleUser" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="ShaBoo.RoleUser" FromRole="User" ToRole="Role" />
+          <Property Type="Int32" Name="RoleID" Nullable="false" />
+        </EntityType>
+        <Association Name="RoleUser">
+          <End Type="ShaBoo.Role" Role="Role" Multiplicity="1" />
+          <End Type="ShaBoo.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Path" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="String" Name="Tags" Nullable="false" />
+          <Property Type="String" Name="Intro" Nullable="false" />
+          <Property Type="String" Name="Suffix" Nullable="false" />
+          <Property Type="Int32" Name="Size" Nullable="false" />
+          <Property Type="Int16" Name="Views" Nullable="false" />
+          <Property Type="Int16" Name="Downloads" Nullable="false" />
+          <Property Type="DateTime" Name="UploadedOn" Nullable="false" />
+          <NavigationProperty Name="FstClass" Relationship="ShaBoo.FstClassDocument" FromRole="Document" ToRole="FstClass" />
+          <Property Type="Int32" Name="FstClassID" Nullable="false" />
+          <NavigationProperty Name="SndClass" Relationship="ShaBoo.SndClassDocument" FromRole="Document" ToRole="SndClass" />
+          <Property Type="Int32" Name="SndClassID" Nullable="false" />
+          <NavigationProperty Name="TrdClass" Relationship="ShaBoo.TrdClassDocument" FromRole="Document" ToRole="TrdClass" />
+          <Property Type="Int32" Name="TrdClassID" Nullable="false" />
+          <NavigationProperty Name="Profile" Relationship="ShaBoo.ProfileDocument" FromRole="Document" ToRole="Profile" />
+          <Property Type="Int32" Name="ProfileID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserName" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="true" />
+          <Property Type="String" Name="LastName" Nullable="true" />
+          <Property Type="String" Name="Alias" Nullable="true" />
+          <Property Type="String" Name="Email" Nullable="false" />
+          <Property Type="String" Name="Intro" Nullable="true" />
+          <Property Type="Int32" Name="Point" Nullable="false" />
+          <NavigationProperty Name="Document" Relationship="ShaBoo.ProfileDocument" FromRole="Profile" ToRole="Document" />
+        </EntityType>
+        <EntityType Name="FstClass">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="SndClass" Relationship="ShaBoo.FstClassSndClass" FromRole="FstClass" ToRole="SndClass" />
+          <NavigationProperty Name="Document" Relationship="ShaBoo.FstClassDocument" FromRole="FstClass" ToRole="Document" />
+        </EntityType>
+        <EntityType Name="SndClass">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="FstClass" Relationship="ShaBoo.FstClassSndClass" FromRole="SndClass" ToRole="FstClass" />
+          <Property Type="Int32" Name="FstClassID" Nullable="false" />
+          <NavigationProperty Name="TrdClass" Relationship="ShaBoo.SndClassTrdClass" FromRole="SndClass" ToRole="TrdClass" />
+          <NavigationProperty Name="Document" Relationship="ShaBoo.SndClassDocument" FromRole="SndClass" ToRole="Document" />
+        </EntityType>
+        <EntityType Name="TrdClass">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="SndClass" Relationship="ShaBoo.SndClassTrdClass" FromRole="TrdClass" ToRole="SndClass" />
+          <Property Type="Int32" Name="SndClassID" Nullable="false" />
+          <NavigationProperty Name="Document" Relationship="ShaBoo.TrdClassDocument" FromRole="TrdClass" ToRole="Document" />
+        </EntityType>
+        <Association Name="FstClassSndClass">
+          <End Type="ShaBoo.FstClass" Role="FstClass" Multiplicity="1" />
+          <End Type="ShaBoo.SndClass" Role="SndClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FstClass">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SndClass">
+              <PropertyRef Name="FstClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SndClassTrdClass">
+          <End Type="ShaBoo.SndClass" Role="SndClass" Multiplicity="1" />
+          <End Type="ShaBoo.TrdClass" Role="TrdClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SndClass">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TrdClass">
+              <PropertyRef Name="SndClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FstClassDocument">
+          <End Type="ShaBoo.FstClass" Role="FstClass" Multiplicity="1" />
+          <End Type="ShaBoo.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FstClass">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="FstClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SndClassDocument">
+          <End Type="ShaBoo.SndClass" Role="SndClass" Multiplicity="1" />
+          <End Type="ShaBoo.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SndClass">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="SndClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TrdClassDocument">
+          <End Type="ShaBoo.TrdClass" Role="TrdClass" Multiplicity="1" />
+          <End Type="ShaBoo.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrdClass">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="TrdClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Board">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="DateTime" Name="PostedOn" Nullable="false" />
+          <Property Type="String" Name="Content" Nullable="false" />
+        </EntityType>
+        <Association Name="ProfileDocument">
+          <End Type="ShaBoo.Profile" Role="Profile" Multiplicity="1" />
+          <End Type="ShaBoo.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShaBooStoreContainer" CdmEntityContainer="ShaBooContainer">
+    <EntitySetMapping Name="RoleSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ShaBoo.Role)">
+        <MappingFragment StoreEntitySet="RoleSet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ShaBoo.User)">
+        <MappingFragment StoreEntitySet="UserSet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ShaBoo.Document)">
+        <MappingFragment StoreEntitySet="DocumentSet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="Intro" ColumnName="Intro" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Views" ColumnName="Views" />
+          <ScalarProperty Name="Downloads" ColumnName="Downloads" />
+          <ScalarProperty Name="UploadedOn" ColumnName="UploadedOn" />
+          <ScalarProperty Name="FstClassID" ColumnName="FstClassID" />
+          <ScalarProperty Name="SndClassID" ColumnName="SndClassID" />
+          <ScalarProperty Name="TrdClassID" ColumnName="TrdClassID" />
+          <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ShaBoo.Profile)">
+        <MappingFragment StoreEntitySet="ProfileSet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Intro" ColumnName="Intro" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FstClassSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ShaBoo.FstClass)">
+        <MappingFragment StoreEntitySet="FstClassSet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SndClassSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ShaBoo.SndClass)">
+        <MappingFragment StoreEntitySet="SndClassSet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FstClassID" ColumnName="FstClassID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrdClassSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ShaBoo.TrdClass)">
+        <MappingFragment StoreEntitySet="TrdClassSet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SndClassID" ColumnName="SndClassID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BoardSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ShaBoo.Board)">
+        <MappingFragment StoreEntitySet="BoardSet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PostedOn" ColumnName="PostedOn" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="ShaBoo" >
+        <EntityTypeShape EntityType="ShaBoo.Role" Width="1.5" PointX="0.5" PointY="0.75" Height="1.5879931640625" />
+        <EntityTypeShape EntityType="ShaBoo.User" Width="1.5" PointX="2.875" PointY="0.75" Height="2.16105224609375" IsExpanded="true" />
+        <AssociationConnector Association="ShaBoo.RoleUser">
+          <ConnectorPoint PointX="2" PointY="1.5439965820312502" />
+          <ConnectorPoint PointX="2.875" PointY="1.5439965820312502" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ShaBoo.Document" Width="1.5" PointX="7.375" PointY="3.625" Height="4.0712491861979156" />
+        <EntityTypeShape EntityType="ShaBoo.Profile" Width="1.5" PointX="2.875" PointY="5.375" Height="2.7341113281249996" />
+        <EntityTypeShape EntityType="ShaBoo.FstClass" Width="1.5" PointX="5.125" PointY="0.75" Height="1.3969734700520831" />
+        <EntityTypeShape EntityType="ShaBoo.SndClass" Width="1.5" PointX="7.375" PointY="0.75" Height="1.3969734700520831" />
+        <EntityTypeShape EntityType="ShaBoo.TrdClass" Width="1.5" PointX="9.625" PointY="0.75" Height="1.3969734700520831" />
+        <AssociationConnector Association="ShaBoo.FstClassSndClass">
+          <ConnectorPoint PointX="6.625" PointY="1.54399658203125" />
+          <ConnectorPoint PointX="7.375" PointY="1.54399658203125" />
+        </AssociationConnector>
+        <AssociationConnector Association="ShaBoo.SndClassTrdClass">
+          <ConnectorPoint PointX="8.875" PointY="1.6395064290364585" />
+          <ConnectorPoint PointX="9.625" PointY="1.6395064290364585" />
+        </AssociationConnector>
+        <AssociationConnector Association="ShaBoo.FstClassDocument">
+          <ConnectorPoint PointX="5.875" PointY="2.5290128580729165" />
+          <ConnectorPoint PointX="5.875" PointY="5.6606245930989578" />
+          <ConnectorPoint PointX="7.375" PointY="5.6606245930989578" />
+        </AssociationConnector>
+        <AssociationConnector Association="ShaBoo.SndClassDocument">
+          <ConnectorPoint PointX="8.125" PointY="2.91105224609375" />
+          <ConnectorPoint PointX="8.125" PointY="3.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="ShaBoo.TrdClassDocument">
+          <ConnectorPoint PointX="10.375" PointY="2.7200325520833335" />
+          <ConnectorPoint PointX="10.375" PointY="5.6606245930989578" />
+          <ConnectorPoint PointX="8.875" PointY="5.6606245930989578" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ShaBoo.Board" Width="1.5" PointX="0.5" PointY="9" Height="1.7790128580729157" />
+        <AssociationConnector Association="ShaBoo.ProfileDocument">
+          <ConnectorPoint PointX="4.375" PointY="6.7266442871093748" />
+          <ConnectorPoint PointX="7.375" PointY="6.7266442871093748" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

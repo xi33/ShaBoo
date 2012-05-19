@@ -1,0 +1,62 @@
+﻿@model ShaBoo.Web.ViewModels.DocumentViewModels.DownloadModel
+@{
+    ViewBag.Title = "Single";
+    <link rel="stylesheet" href="@Url.Content("~/Content/shaboo/single.css")" type="text/css" />
+
+}
+<div id="content">
+    <div class="left">
+        <div class="singledocproperties">
+            <h4 id="doctitle">
+                @Model.Title</h4>
+            <ul>
+                <li>文档格式：@Model.Suffix</li>
+                <li>浏览次数：@Model.Views</li>
+                <li>上传者：@Model.User</li>
+                <li>文档大小：@Model.Size M</li>
+                <li>下载次数：@Model.Downloads</li>
+                <li>上传时间：@Model.UploadedOn</li>
+            </ul>
+            <div class="clear">
+            </div>
+            <h4 id="docint">
+                资料简介</h4>
+            <p>
+                @Model.Intro</p>
+        </div>
+        <div id="single-shareto">
+            <!-- JiaThis Button BEGIN -->
+            <div id="ckepop">
+                <span class="jiathis_txt">分享到：</span> <a class="jiathis_button_icons_1"></a><a class="jiathis_button_icons_2">
+                </a><a class="jiathis_button_icons_3"></a><a class="jiathis_button_icons_4"></a>
+                <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis"
+                    target="_blank"></a><a class="jiathis_counter_style"></a>
+            </div>
+            <script type="text/javascript" src="http://v2.jiathis.com/code/jia.js" charset="utf-8"></script>
+            <!-- JiaThis Button END -->
+        </div>
+        <a href="@Url.Action("Download", "Document", new { id = Model.ID })" alt="下载文档" id="downloadbotton">
+            <img src="@Url.Content("~/Content/images/downloadbotton.jpg")" /></a>
+        <div class="clear">
+        </div>
+        <div id="singlerelativedocs">
+            <h2 class="tib">
+                |相关文档</h2>
+            <ul class="singlerelativedocsul">
+                <li><a href="">
+                    <img src="../../Content/images/thumb.jpg" alt="马克思主义基本原理" /></a><a href="#" class="relativetitle">马克思基本原理</a></li>
+                <li><a href="">
+                    <img src="../../Content/images/thumb.jpg" alt="马克思主义基本原理" /></a><a href="#" class="relativetitle">马克思基本原理</a></li>
+                <li><a href="">
+                    <img src="../../Content/images/thumb.jpg" alt="马克思主义基本原理" /></a><a href="#" class="relativetitle">马克思基本原理</a></li>
+                <li><a href="">
+                    <img src="../../Content/images/thumb.jpg" alt="马克思主义基本原理" /></a><a href="#" class="relativetitle">马克思基本原理</a></li>
+            </ul>
+        </div>
+    </div>
+    @{
+        Html.RenderPartial("~/Views/Shared/_RightSideBar.cshtml");
+    }
+    <div class="blank">
+    </div>
+</div>

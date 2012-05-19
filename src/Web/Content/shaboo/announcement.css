@@ -1,0 +1,26 @@
+
+
+
+
+#uploadingknown{
+	float:left;
+	width:602px;
+	height:600px;
+	position:relative; 
+	top:20px; 
+	left:-110px; 
+}
+.clear{
+	clear:both;
+}
+.scxz{
+	text-align:center;
+	color:#624152;
+	font-weight:bold;
+	margin-top:14px;
+	margin-bottom:14px;
+}
+.sc{
+	text-align:justify; 
+	margin-bottom:20px;
+}

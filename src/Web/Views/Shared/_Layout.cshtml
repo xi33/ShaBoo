@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--header-->
+    <meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <meta name="Keywords" content="文档站,中国矿业大学学生在线文档站,文档分享,中国矿业大学" />
+    <meta name="Description" content="中国矿业大学学生在线文档分享站" />
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.18.min.js")"></script>
+    <link href ="@Url.Content("~/Content/themes/base/minified/jquery-ui.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/modernizr-2.5.3.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/shaboo/common.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/shaboo/easySlider1.5.js")" type="text/javascript"></script>
+    <link rel="stylesheet" href="@Url.Content("~/Content/shaboo/common.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/shaboo/base.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/shaboo/slide.css")" type="text/css" />
+    <!--header end-->
+    <!-- PNG FIX for IE6 -->
+    <!--[if lte IE 6]>
+	<script src="../../Scripts/shaboo/pngfix/jquery.pngFix.js" type="text/javascript"></script>
+	<script type="text/javascript"> 
+    $(document).ready(function(){ 
+        $(document).pngFix(); 
+    }); 
+	</script>
+	<![endif]-->
+    <!-- Sliding effect -->
+    <script src="@Url.Content("~/Scripts/shaboo/slide.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            // Disable caching of AJAX responses
+            cache: false
+        });
+    </script>
+    <script type="text/javascript">
+        (function () {
+            $(function () {
+                //Global ajax progress dialog box
+                //Simply run $("#ajax-progress-dialog").dialog("open"); script before the ajax post and
+                //$("#ajax-progress-dialog").dialog("close"); on the ajax post complate
+                $("#ajax-progress-dialog").dialog({
+                    autoOpen: false,
+                    draggable: false,
+                    modal: true,
+                    height: 80,
+                    resizable: false,
+                    title: "正在处理, 请稍后...",
+                    closeOnEscape: false,
+                    open: function () { $(".ui-dialog-titlebar-close").hide(); } // Hide close button
+                });
+            });
+        })();
+    </script>
+    <style type="text/css">
+        h3
+        {
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <div id="topbar">
+                <div id="topmenu">
+                    <div id="topnav">
+                        <ul class="inline">
+                            <li><a href="http://online.cumt.edu.cn/">学生在线首页</a></li>
+                            <li>|</li>
+                            <li><a href="http://online.cumt.edu.cn/news">新闻</a></li>
+                            <li>|</li>
+                            <li><a href="http://online.cumt.edu.cn/discuz">论坛</a></li>
+                            <li>|</li>
+                            <li><a href="">文档</a></li>
+                            <li>|</li>
+                            <li><a href="http://online.cumt.edu.cn/flea">跳蚤市场</a></li>
+                        </ul>
+                    </div>
+                    <div id="logindisplay">
+                        @Html.Partial("_LogOnPartial")
+                    </div>
+                </div>
+            </div>
+            <div id="head">
+                <a href="@Url.Action("Index", "Home")">
+                    <img src="@Url.Content("~/Content/images/logo.jpg")" alt="学生在线文档站" id="logo" /></a>
+                <div id="search">
+                    <form action="" name="form" method="post">
+                    <input type="text" value="搜索文档" id="search_text" name="text" />
+                    <input type="submit" value="" id="sub" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        @RenderBody()
+        <div id="footer">
+            <div id="bottomnav">
+                <ul class="inline">
+                    <li><a href="http://online.cumt.edu.cn">学生在线</a></li>
+                    <li>|</li>
+                    <li><a href="http://online.cumt.edu.cn/FlyingStudio">翔工作室</a></li>
+                    <li>|</li>
+                    <li><a href="http://online.cumt.edu.cn/FlyingStudio/?cat=8">关于我们</a></li>
+                    <li>|</li>
+                    <li><a href="http://online.cumt.edu.cn/FlyingStudio/join.html">加入我们</a></li>
+                </ul>
+            </div>
+            <div id="copyright">
+                <p>
+                    Copyright &copy 2000-2011 &nbsp Powered by Flying Studio<p>
+            </div>
+        </div>
+    </div>
+    <div id="ajax-progress-dialog">
+        <div style="margin: 10px 0 0 0; text-align: center;">
+            <img src="@Url.Content("~/Content/images/facebook.gif")" alt="Loading..." />
+        </div>
+    </div>
+</body>
+</html>

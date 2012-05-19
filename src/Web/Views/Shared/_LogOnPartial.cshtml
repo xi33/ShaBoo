@@ -1,0 +1,19 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <div id="logout">
+        <ul class="inline">
+            <li><a href="">欢迎您，@User.Identity.Name</a></li>
+            <li><a href="@Url.Action("Index", "Profile", new { name=User.Identity.Name})">我的文档</a></li>
+            <li><a href="@Url.Action("LogOff", "Account")">退出</a></li>
+        </ul>
+    </div>
+}
+else
+{
+    <div id="login">
+        <ul class="inline">
+            <li><a href="@Url.Action("Register", "Account")">注册</a></li>
+            <li><a href="@Url.Action("LogOn", "Account")">| 登录</a></li>
+        </ul>
+    </div>
+}

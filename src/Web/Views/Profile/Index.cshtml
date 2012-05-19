@@ -1,0 +1,71 @@
+﻿@model ShaBoo.Web.ViewModels.ProfileViewModels.IndexModel
+@{
+    ViewBag.Title = "我的信息";
+    <link rel="stylesheet" href="@Url.Content("~/Content/shaboo/user.css")" type="text/css" />
+}
+<div id="content">
+    <div class="left">
+        <div class="userblocks">
+            <img src="@Url.Content("~/Content/images/user/head.jpg")" id="userhead" />
+            <div id="userproperties">
+                <ul class="userpropertiesul">
+                    <li>用户名：<a href="#">@Model.Name</a></li>
+                    <li><span class="right">积分：@Model.Point</span></li>
+                    <li><span class="right">等级：一级</span></li>
+                </ul>
+                <ul class="userpropertiesul" id="docnumbers">
+                    <li>我的文档：33</li>
+                    <li>总浏览量：324</li>
+                    <li>总下载量：一级</li>
+                </ul>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <div class="userblocks" id="user-uploaddocs">
+            <h2>
+                我上传的文档</h2>
+            <div class="docinners">
+                <div class="doctabletitle">
+                    <span class="user-docname">文档名称</span> <span class="user-docact">操作</span> <span
+                        class="user-docbrowser">浏览量</span> <span class="user-docdownload">下载量</span>
+                    <span class="user-docuploadtime">上传时间</span>
+                </div>
+                <ul class="mydocsul">
+                    @foreach (var document in Model.UploadedDocuments)
+                    {
+                        <li class="uncolored"><span class="user-docname"><a href="@Url.Action("Single", "Document", new { id = document.ID })">
+                            <img src="@Url.Content("~/Content/images/doctypeicon/ppt.gif")" />@document.Title</a></span>
+                            <span class="user-docact"><a href="#">
+                                <img src="@Url.Content("~/Content/images/editicon.gif")" /></a><a href="#"><img src="@Url.Content("~/Content/images/deleteicon.gif")" /></a></span>
+                            <span class="user-docbrowser">@document.Views</span> <span class="user-docdownload">@document.Downloads</span>
+                            <span class="user-docuploadtime">@document.UploadedOn.ToString("yyyy-MM-dd")</span>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="clear">
+            </div>
+            <div id="page">
+                <ol class="pagination">
+                    <li><a rel="Prev" href="#">上一页</a></li>
+                    <li><a href="#">1</a></li>
+                    <li class="selected">2</li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#">7</a></li>
+                    <li><a href="#">8</a></li>
+                    <li><a href="#">9</a></li>
+                    <li><a rel="next" href="#">下一页</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    @{
+        Html.RenderPartial("~/Views/Shared/_RightSideBar.cshtml");
+    }
+    <div class="blank">
+    </div>
+</div>
