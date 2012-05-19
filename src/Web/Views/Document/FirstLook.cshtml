@@ -1,0 +1,33 @@
+﻿@(Html.Telerik().Upload()
+        .Name("attachments")
+        .Multiple((bool) ViewData["multiple"])
+        .Async(async => async
+            .Save("Save", "Document")
+            .Remove("Remove", "Document")
+            .AutoUpload((bool) ViewData["autoUpload"])
+        )
+)
+
+<p class="note">
+    Maximum allowed file size: 10 MB
+</p>
+@section HeadContent {
+    <style type="text/css">
+        .t-upload {
+            float: left;
+        }
+        
+        .note {
+            clear: left;
+            float: left;
+        }
+        
+        .example .configurator
+        {
+            width: 400px;
+            float: right;
+            margin: 0 0 0 10em;
+            display: inline;
+        }
+    </style>
+} 
