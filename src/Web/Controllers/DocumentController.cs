@@ -9,9 +9,11 @@ using ShaBoo.Web.ViewModels;
 
 namespace ShaBoo.Web.Controllers
 {
+    using Newtonsoft.Json.Linq;
+
     using ShaBoo.Services.Util;
 
-    [Authorize(Roles = "User")]
+    //[Authorize(Roles = "User")]
     public class DocumentController : Controller
     {
         #region ctor
@@ -124,6 +126,11 @@ namespace ShaBoo.Web.Controllers
                 }
             }
             return null;
+        }
+
+        public ActionResult Category(int id)
+        {
+            return View();
         }
 
         #region Ajax获得三级分类

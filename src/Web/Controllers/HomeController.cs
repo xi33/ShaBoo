@@ -22,27 +22,36 @@ namespace ShaBoo.Web.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Hello = "Hello World";
-            ViewBag.Roles = _service.RoleService.GetAllRoles();
-            ViewBag.Users = _service.UserService.GetAllUsers();
-            return View();
-        }
-
-        public ActionResult Test()
-        {
-            return this.View();
-        }
-
-        [HttpPost]
-        public ActionResult Upload(string qqfile)
-        {
-            var path = Server.MapPath("~/App_Data");
-            var file = Path.Combine(path, qqfile);
-            using (var output = System.IO.File.OpenWrite(file))
+            var model = new IndexViewModel();
+            model.MainCategories = _service.ClassService.GetFstClasses();
+            model.SubCategories = _service.ClassService.GetSndClasses();
+            model.CategoryWithDocumentses = new List<IndexViewModel.CategoryWithDocuments>();
+            foreach (var main in model.MainCategories)
             {
-                Request.InputStream.CopyTo(output);
+                var m = main;
+                var documents = _service.DocumentService.GetDocuments()
+                    .Where(_ => _.FstClassID == m.ID).Take(8);
+                model.CategoryWithDocumentses.Add(new IndexViewModel.CategoryWithDocuments
+                {
+                    MainCategory = main,
+                    Documents = documents
+                });
             }
-            return Json(new { success = true });
+            model.Boards = _service.BoardService.ListAllBoard();
+            return View(model);
+        }
+
+        public ActionResult Board(int id)
+        {
+            var board = _service.BoardService.ListAllBoard().Where(_ => _.ID == id).FirstOrDefault();
+            var model = new BoardViewModel
+            {
+                Title = board.Title, 
+                Content = board.Content,
+                PostedOn = board.PostedOn
+            };
+
+            return View(model);
         }
 
     }

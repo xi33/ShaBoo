@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/09/2012 09:06:39
--- Generated from EDMX file: D:\Documents\Visual Studio 2010\Projects\ShaBoo_all\ShaBoo\src\Entities\ShaBoo.edmx
+-- Date Created: 05/24/2012 20:05:46
+-- Generated from EDMX file: D:\Documents\Visual Studio 2010\Projects\ShaBoo\src\Entities\ShaBoo.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [shaboo_test];
+USE [ShaBoo_test];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -117,7 +117,8 @@ CREATE TABLE [dbo].[ProfileSet] (
     [Alias] nvarchar(max)  NULL,
     [Email] nvarchar(max)  NOT NULL,
     [Intro] nvarchar(max)  NULL,
-    [Point] int  NOT NULL
+    [Point] int  NOT NULL,
+    [UID] nvarchar(max)  NOT NULL
 );
 GO
 

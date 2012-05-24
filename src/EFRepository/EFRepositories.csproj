@@ -56,7 +56,9 @@
     <Compile Include="DocumentRepository.cs" />
     <Compile Include="EFInjectionModule.cs" />
     <Compile Include="FstClassRepository.cs" />
+    <Compile Include="Moqs\MoqFstClassRepository.cs" />
     <Compile Include="Moqs\MoqRoleRepository.cs" />
+    <Compile Include="Moqs\MoqSndClassRepository.cs" />
     <Compile Include="ProfileRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />

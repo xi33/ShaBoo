@@ -27,6 +27,7 @@ namespace ShaBoo.Entities
         public string Email { get; set; }
         public string Intro { get; set; }
         public int Point { get; set; }
+        public string UID { get; set; }
     
         public virtual ICollection<Document> Document { get; set; }
     }

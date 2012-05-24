@@ -1,39 +1,85 @@
-﻿@{
+﻿@model ShaBoo.Web.ViewModels.IndexViewModel
+@{
     ViewBag.Title = "Index";
+    <link rel="stylesheet" href="@Url.Content("~/Content/shaboo/index.css")" type="text/css" />
 }
 <div id="content">
     <div class="left">
-        <h2>
-            测试版说明</h2>
-        <p>@ViewBag.Hello</p>
-        <p>
-            请先<a href="@Url.Action("Register", "Account")"><strong>注册（点击该链接）</strong></a>
-            <p>然后点击<strong>分享我的文档</strong>，上传</p>
-        <p>
-            或者点击下面的<strong>当前注册用户名称</strong></p>
-        <p>
-            由于这是重构后的版本，还有一些功能在原来的代码没有整合</p>
-        <p>
-            我也不想把代码搞的太乱</p>
-        <p>
-            上传插件好像有问题。只能传小于10M的文件s</p>
-        <h2>
-            当前用户角色，新创建用户默认角色为User</h2>
-        <ul>
-            @foreach (var role in ViewBag.Roles)
+        <div id="leftsidebar">
+            @foreach (var m in Model.MainCategories)
             {
-                <li>@role.Name</li>
+                <div class="category">
+                    <h2 class="ti">
+                        @m.Name</h2>
+                    <ul class="inline">
+                        @foreach (var n in Model.SubCategories.Where(_ => _.FstClassID == m.ID))
+                        {
+                            <li><a href="@Url.Action("Category", "Document", new { id = n.ID })">@n.Name</a></li>
+                        }
+                    </ul>
+                </div>
             }
-        </ul>
-        <h2>
-            当前注册用户</h2>
-        <ul>
-            @foreach (var user in ViewBag.Users)
-            {
-                <li><a href="@Url.Action("Index", "Profile", new { name = @user.Name })">@user.Name</a>
-                </li>
-            }
-        </ul>
+            <div class="announce">
+                <h3>
+                    公告</h3>
+                <hr />
+                <ul>
+                    @foreach (var b in Model.Boards)
+                    {
+                        <li>@Html.ActionLink(b.Title, "Board", "Home", new { id = b.ID }, null)</li>
+                    }
+                </ul>
+            </div>
+            <div class="ad">
+                <h3>
+                    广告</h3>
+                <hr />
+                <img src="@Url.Content("~/Content/images/ad.jpg")" alt="advertisement" />
+            </div>
+        </div>
+        <div id="center">
+            <div class="populer">
+                <h2 class="tib">
+                    |热门文档</h2>
+                <ul class="inline">
+                    <li><a href="">
+                        <img src="@Url.Content("~/Content/images/thumb.jpg")" alt="马克思主义基本原理" class="thumb" /></a><a
+                            href="" class="populertitle">马克思基本原理</a></li>
+                    <li><a href="">
+                        <img src="@Url.Content("~/Content/images/thumb.jpg")" alt="马克思主义基本原理" class="thumb" /></a><a
+                            href="" class="populertitle">马克思基本原理</a></li>
+                    <li><a href="">
+                        <img src="@Url.Content("~/Content/images/thumb.jpg")" alt="马克思主义基本原理" class="thumb" /></a><a
+                            href="" class="populertitle">马克思基本原理</a></li>
+                    <li><a href="">
+                        <img src="@Url.Content("~/Content/images/thumb.jpg")" alt="马克思主义基本原理" class="thumb" /></a><a
+                            href="" class="populertitle">马克思基本原理</a></li>
+                    <li><a href="">
+                        <img src="@Url.Content("~/Content/images/thumb.jpg")" alt="马克思主义基本原理" class="thumb" /></a><a
+                            href="" class="populertitle">马克思基本原理</a></li>
+                    <li><a href="">
+                        <img src="@Url.Content("~/Content/images/thumb.jpg")" alt="马克思主义基本原理" class="thumb" /></a><a
+                            href="" class="populertitle">马克思基本原理</a></li>
+                </ul>
+            </div>
+            <div class="studyindex">
+                @foreach (var m in Model.CategoryWithDocumentses)
+                {
+                    <div class="indexfile">
+                        <h3>@m.MainCategory.Name</h3>
+                    </div>
+                    <hr />
+                    <ul class="indexlist">
+                        @foreach (var n in m.Documents)
+                        {
+                            <li><a href=@Url.Action("Single", "Document", new { id = n.ID })>
+                                <img src="@Url.Content("~/Content/images//doctypeicon/ppt.jpg")" alt="PPT" class="doctypeicon" />@n.Title||@n.ID</a><span
+                                    class="date">11-18</span></li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
     </div>
     @{
         Html.RenderPartial("~/Views/Shared/_RightSideBar.cshtml");

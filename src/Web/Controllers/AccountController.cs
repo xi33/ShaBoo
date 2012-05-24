@@ -47,10 +47,6 @@ namespace ShaBoo.Web.Controllers
             }
             this.ModelState.AddModelError("", "The user name or password provided is incorrect.");
             return View(model);
-            //}
-
-            //// If we got this far, something failed, redisplay form
-            //return View(model);
         }
 
         //

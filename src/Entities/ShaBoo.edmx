@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ShaBoo.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="ShaBoo.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="ShaBooStoreContainer">
     <EntitySet Name="RoleSet" EntityType="ShaBoo.Store.RoleSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserSet" EntityType="ShaBoo.Store.UserSet" store:Type="Tables" Schema="dbo" />
@@ -91,6 +91,7 @@
     <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Intro" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Point" Type="int" Nullable="false" />
+    <Property Name="UID" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="FstClassSet">
     <Key>
@@ -317,6 +318,7 @@
           <Property Type="String" Name="Intro" Nullable="true" />
           <Property Type="Int32" Name="Point" Nullable="false" />
           <NavigationProperty Name="Document" Relationship="ShaBoo.ProfileDocument" FromRole="Profile" ToRole="Document" />
+          <Property Type="String" Name="UID" Nullable="false" />
         </EntityType>
         <EntityType Name="FstClass">
           <Key>
@@ -485,6 +487,7 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Intro" ColumnName="Intro" />
           <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -551,7 +554,7 @@
           <ConnectorPoint PointX="2.875" PointY="1.5439965820312502" />
         </AssociationConnector>
         <EntityTypeShape EntityType="ShaBoo.Document" Width="1.5" PointX="7.375" PointY="3.625" Height="4.0712491861979156" />
-        <EntityTypeShape EntityType="ShaBoo.Profile" Width="1.5" PointX="2.875" PointY="5.375" Height="2.7341113281249996" />
+        <EntityTypeShape EntityType="ShaBoo.Profile" Width="1.5" PointX="2.875" PointY="5.375" Height="2.9417936197916656" />
         <EntityTypeShape EntityType="ShaBoo.FstClass" Width="1.5" PointX="5.125" PointY="0.75" Height="1.3969734700520831" />
         <EntityTypeShape EntityType="ShaBoo.SndClass" Width="1.5" PointX="7.375" PointY="0.75" Height="1.3969734700520831" />
         <EntityTypeShape EntityType="ShaBoo.TrdClass" Width="1.5" PointX="9.625" PointY="0.75" Height="1.3969734700520831" />
@@ -579,8 +582,8 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="ShaBoo.Board" Width="1.5" PointX="0.5" PointY="9" Height="1.7790128580729157" />
         <AssociationConnector Association="ShaBoo.ProfileDocument">
-          <ConnectorPoint PointX="4.375" PointY="6.7266442871093748" />
-          <ConnectorPoint PointX="7.375" PointY="6.7266442871093748" />
+          <ConnectorPoint PointX="4.375" PointY="6.7401025390625" />
+          <ConnectorPoint PointX="7.375" PointY="6.7401025390625" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>

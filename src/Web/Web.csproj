@@ -37,6 +37,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.4.5.5\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\..\packages\Ninject.3.0.0.15\lib\net40\Ninject.dll</HintPath>
     </Reference>
@@ -68,6 +71,7 @@
     <Compile Include="Areas\SB_Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\SB_Admin\SB_AdminAreaRegistration.cs" />
     <Compile Include="Areas\SB_Admin\ViewModels\BoardViewModels.cs" />
+    <None Include="config\firstclass.json" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -85,6 +89,7 @@
     <Compile Include="ViewModels\DocumentViewModels.cs" />
     <Compile Include="ViewModels\HomeViewModels.cs" />
     <Compile Include="ViewModels\ProfileViewModels.cs" />
+    <Content Include="Views\Document\Category.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\SB_Admin\Content\css\ie.css" />
@@ -242,6 +247,18 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="README.jQuery.vsdoc.txt" />
+    <Content Include="Scripts\fancybox\blank.gif" />
+    <Content Include="Scripts\fancybox\fancybox_loading.gif" />
+    <Content Include="Scripts\fancybox\fancybox_sprite.png" />
+    <Content Include="Scripts\fancybox\helpers\fancybox_buttons.png" />
+    <Content Include="Scripts\fancybox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Scripts\fancybox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Scripts\fancybox\helpers\jquery.fancybox-media.js" />
+    <Content Include="Scripts\fancybox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Scripts\fancybox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Scripts\fancybox\jquery.fancybox.css" />
+    <Content Include="Scripts\fancybox\jquery.fancybox.js" />
+    <Content Include="Scripts\fancybox\jquery.fancybox.pack.js" />
     <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -257,6 +274,7 @@
     <Content Include="Scripts\shaboo\common.js" />
     <Content Include="Scripts\shaboo\easySlider1.5.js" />
     <Content Include="Scripts\shaboo\fileuploader.js" />
+    <Content Include="Scripts\shaboo\jquery.mousewheel-3.0.6.pack.js" />
     <Content Include="Scripts\shaboo\pngfix\blank.gif" />
     <Content Include="Scripts\shaboo\pngfix\jquery.pngFix.js" />
     <Content Include="Scripts\shaboo\pngfix\supersleight-min.js" />

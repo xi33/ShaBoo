@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Category";
+    <link rel="stylesheet" href="@Url.Content("~/Content/shaboo/school.css")" type="text/css" />
+
+}
+<div id="content">
+    <div class="left">
+        <div class="schoolproperties">
+            <h4 class="schoolname">
+                矿业学院</h4>
+            <ul>
+                <li>·<a href="#">采矿工程</a><span>(123)</span></li>
+                <li>·<a href="#">采矿工程</a><span>(123)</span></li>
+                <li>·<a href="#">采矿工程</a><span>(123)</span></li>
+                <li>·<a href="#">采矿工程</a><span>(123)</span></li>
+                <li>·<a href="#">交通工程</a><span>(123)</span></li>
+                <li>·<a href="#">采矿工程</a><span>(123)</span></li>
+            </ul>
+        </div>
+        <div id="schooldocstable">
+            <div class="schooldocstabletitle">
+                <span class="school-docname">文档名称</span> <span class="school-uploader">上传者</span>
+                <span class="school-docdownloadtitle">下载量</span> <span class="school-docuploadtimetitle">
+                    上传时间</span>
+            </div>
+            <div class="schooldocstableinner">
+                <ul class="mydocsul">
+                    <li><span class="school-docname"><a href="#">
+                        <img src="images/doctypeicon/ppt.gif" />矿山压力与岩层控制</a></span> <span class="school-uploader">
+                            <a href="#">facai1997</a></span> <span class="school-docdownload">30</span>
+                        <span class="school-docuploadtime">2011/11/27</span> </li>
+                    <li class="colored"><span class="school-docname"><a href="#">
+                        <img src="images/doctypeicon/ppt.gif" />矿山压力与岩层控制</a></span> <span class="school-uploader">
+                            <a href="#">facai1997</a></span> <span class="school-docdownload">30</span>
+                        <span class="school-docuploadtime">2011/11/27</span> </li>
+                    <li><span class="school-docname"><a href="#">
+                        <img src="images/doctypeicon/ppt.gif" />矿山压力与岩层控制</a></span> <span class="school-uploader">
+                            <a href="#">facai1997</a></span> <span class="school-docdownload">30</span>
+                        <span class="school-docuploadtime">2011/11/27</span> </li>
+                    <li class="colored"><span class="school-docname"><a href="#">
+                        <img src="images/doctypeicon/ppt.gif" />矿山压力与岩层控制</a></span> <span class="school-uploader">
+                            <a href="#">facai1997</a></span> <span class="school-docdownload">30</span>
+                        <span class="school-docuploadtime">2011/11/27</span> </li>
+                    <li><span class="school-docname"><a href="#">
+                        <img src="images/doctypeicon/ppt.gif" />矿山压力与岩层控制</a></span> <span class="school-uploader">
+                            <a href="#">facai1997</a></span> <span class="school-docdownload">30</span>
+                        <span class="school-docuploadtime">2011/11/27</span> </li>
+                    <li class="colored"><span class="school-docname"><a href="#">
+                        <img src="images/doctypeicon/ppt.gif" />矿山压力与岩层控制</a></span> <span class="school-uploader">
+                            <a href="#">facai1997</a></span> <span class="school-docdownload">30</span>
+                        <span class="school-docuploadtime">2011/11/27</span> </li>
+                    <li><span class="school-docname"><a href="#">
+                        <img src="images/doctypeicon/ppt.gif" />矿山压力与岩层控制</a></span> <span class="school-uploader">
+                            <a href="#">facai1997</a></span> <span class="school-docdownload">30</span>
+                        <span class="school-docuploadtime">2011/11/27</span> </li>
+                    <li class="colored"><span class="school-docname"><a href="#">
+                        <img src="images/doctypeicon/ppt.gif" />矿山压力与岩层控制</a></span> <span class="school-uploader">
+                            <a href="#">facai1997</a></span> <span class="school-docdownload">30</span>
+                        <span class="school-docuploadtime">2011/11/27</span> </li>
+                    <li><span class="school-docname"><a href="#">
+                        <img src="images/doctypeicon/ppt.gif" />矿山压力与岩层控制</a></span> <span class="school-uploader">
+                            <a href="#">facai1997</a></span> <span class="school-docdownload">30</span>
+                        <span class="school-docuploadtime">2011/11/27</span> </li>
+                    <li class="colored"><span class="school-docname"><a href="#">
+                        <img src="images/doctypeicon/ppt.gif" />矿山压力与岩层控制</a></span> <span class="school-uploader">
+                            <a href="#">facai1997</a></span> <span class="school-docdownload">30</span>
+                        <span class="school-docuploadtime">2011/11/27</span> </li>
+                </ul>
+            </div>
+        </div>
+        <div id="page">
+            <ol class="pagination">
+                <li><a rel="Prev" href="#">上一页</a></li>
+                <li><a href="#">1</a></li>
+                <li class="selected">2</li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">7</a></li>
+                <li><a href="#">8</a></li>
+                <li><a href="#">9</a></li>
+                <li><a rel="next" href="#">下一页</a></li>
+            </ol>
+        </div>
+    </div>
+    @{
+        Html.RenderPartial("~/Views/Shared/_RightSideBar.cshtml");
+    }
+    <div class="blank">
+    </div>
+</div>

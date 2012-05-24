@@ -72,7 +72,8 @@ namespace ShaBoo.EFRepositories
         {
             get
             {
-                return _fstClassRepository ?? (_fstClassRepository = new FstClassRepository(_context));
+                //return _fstClassRepository ?? (_fstClassRepository = new FstClassRepository(_context));
+                return MoqFstClassRepository.Load();
             }
         }
 
@@ -80,7 +81,8 @@ namespace ShaBoo.EFRepositories
         {
             get
             {
-                return _sndClassRepository ?? (_sndClassRepository = new SndClassRepository(_context));
+                //return _sndClassRepository ?? (_sndClassRepository = new SndClassRepository(_context));
+                return MoqSndClassRepository.Load();
             }
         }
 

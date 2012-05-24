@@ -42,6 +42,11 @@ namespace ShaBoo.Services
 
         public void CreateProfile(string userName, string firstName, string lastName, string alias, string email, string intro, int point)
         {
+            CreateProfile(userName, null, null, null, email, null, point, "");
+        }
+
+        public void CreateProfile(string userName, string firstName, string lastName, string alias, string email, string intro, int point, string uid)
+        {
             Profile newProfile = new Profile
                 {
                     UserName = userName,
@@ -51,6 +56,7 @@ namespace ShaBoo.Services
                     Email = email,
                     Intro = intro,
                     Point = point,
+                    UID = uid
                 };
             _context.ProfileRepository.Insert(newProfile);
             _context.SaveChanges();

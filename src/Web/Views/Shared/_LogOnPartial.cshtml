@@ -1,9 +1,77 @@
-﻿@if (Request.IsAuthenticated)
+﻿<link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/fancybox/jquery.fancybox.css")" media="all" />
+<style type="text/css">
+    #loginbox
+    {
+        width: 400px;
+        height: 200px;
+    }
+    
+    #loginbox form
+    {
+        width: 300px;
+        height: 200px;
+        margin-top: 60px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 0;
+    }
+    .logintext
+    {
+        font-size: 14px;
+        color: #333;
+    }
+    input.login_username
+    {
+        width: 230px;
+        height: 20px;
+        line-height: 20px;
+    }
+    input.login_pw
+    {
+        width: 230px;
+        height: 20px;
+        line-height: 20px;
+        margin-top: 15px;
+    }
+    div.rememandsub
+    {
+        margin-top: 15px;
+        font-size: 14px;
+        line-height: 20px;
+        width: 300px;
+    }
+    input.mem_checkbox
+    {
+        margin-right: 8px;
+        virtical-align: middle;
+    }
+    lebel.mem_text
+    {
+        virtical-align: middle;
+    }
+    input.login_submit
+    {
+        font-size: 14px;
+        color: #FFF;
+        letter-spacing: 0.4em;
+        text-align: center;
+        width: 58px;
+        height: 24px;
+        padding-left: 13px;
+        _padding-left: 0;
+        padding-bottom: 3px;
+        background-color: #92C976;
+        border: 1px solid #79B05F;
+        cursor: hand;
+        float: right;
+    }
+</style>
+@if (Request.IsAuthenticated)
 {
     <div id="logout">
         <ul class="inline">
             <li><a href="">欢迎您，@User.Identity.Name</a></li>
-            <li><a href="@Url.Action("Index", "Profile", new { name=User.Identity.Name})">我的文档</a></li>
+            <li><a href="@Url.Action("Index", "Profile", new { name = User.Identity.Name })">我的文档</a></li>
             <li><a href="@Url.Action("LogOff", "Account")">退出</a></li>
         </ul>
     </div>
@@ -13,7 +81,26 @@ else
     <div id="login">
         <ul class="inline">
             <li><a href="@Url.Action("Register", "Account")">注册</a></li>
-            <li><a href="@Url.Action("LogOn", "Account")">| 登录</a></li>
+            <li>|</li>
+            <li><a href="#loginbox" class="fancybox">登录</a></li>
         </ul>
     </div>
 }
+<div id="loginbox" style="display:none;">
+		<form action="">
+			<span class="logintext">用户名：</span>
+			<input type="text" name="" id="" class="login_username"/>
+			<br/>
+			<span class="logintext">密&nbsp 码：</span>
+			<input type="password" name="" id="" class="login_pw"/>
+			<br/>
+			<div class="rememandsub"><input type="checkbox" name="" id="" class="mem_checkbox"/><label class="mem_text">记住我</label><input type="submit" value="登录" class="login_submit"/></div>
+		</form>
+	</div>
+<script type="text/javascript" src="@Url.Content("~/Scripts/shaboo/jquery.mousewheel-3.0.6.pack.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/fancybox/jquery.fancybox.js")"></script>
+	<script type="text/javascript">
+	    $(document).ready(function () {
+	        $(".fancybox").fancybox();
+	    });
+	</script>
