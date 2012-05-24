@@ -38,7 +38,8 @@ namespace ShaBoo.Web.Controllers
         [HttpPost]
         public ActionResult Upload(DocumentViewModels.UploadModel model)
         {
-            string filePath = Path.Combine(StorageRoot, model.FileName);
+            string path = StorageRoot;
+            string filePath = Path.Combine(path, model.FileName);
             var suffix = Path.GetExtension(filePath);
             var size = ((Int32)new System.IO.FileInfo(filePath).Length) / (1024 * 1024);
             _service.DocumentService.CreateNewUploadedDocument(
@@ -48,6 +49,7 @@ namespace ShaBoo.Web.Controllers
                 0, 0, DateTime.UtcNow, User.Identity.Name);
             return Content("谢谢，上传成功", "text/html");
         }
+
 
         /// <summary>
         /// 上传文件
@@ -67,7 +69,7 @@ namespace ShaBoo.Web.Controllers
                     // IE
                     HttpPostedFileBase postedFile = Request.Files[0];
                     stream = postedFile.InputStream;
-                    file = Path.Combine(StorageRoot, Path.GetFileName(Request.Files[0].FileName));
+                    file = Path.Combine(StorageRoot, Path.GetFileName(postedFile.FileName));
                 }
                 else
                 {
